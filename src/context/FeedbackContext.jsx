@@ -6,6 +6,8 @@ export const ContextProvider = ({ children }) => {
   const [good, setGood] = useState(0);
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
+  const [total, setTotal] = useState(0);
+  const options = ['good', 'neutral', 'bad'];
 
   const handleBtnClick = e => {
     if (e.target.name === 'good') {
@@ -19,19 +21,22 @@ export const ContextProvider = ({ children }) => {
     }
   };
   const countTotalFeedback = () => {
-    return good + neutral + bad;
+    setTotal(good + neutral + bad);
+    return total;
   };
 
-  const countPositiveFeedbackPercentage = () => {
+  const countPositive = () => {
     return Math.round((100 / countTotalFeedback()) * good);
   };
   const contextValue = {
     good,
     neutral,
     bad,
+    total,
     handleBtnClick,
     countTotalFeedback,
-    countPositiveFeedbackPercentage,
+    countPositive,
+    options,
   };
 
   return (
