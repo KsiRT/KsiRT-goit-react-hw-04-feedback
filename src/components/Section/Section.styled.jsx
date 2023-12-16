@@ -1,10 +1,7 @@
 import { styled } from 'styled-components';
 
-export const Container = styled.section`
-  padding: 20px 20px;
-`;
-
 export const Heading = styled.h2`
-  padding: 0;
+  padding: 10px 10px 10px 50px;
   margin: 0;
+  font-size: 26px;
 `;

@@ -4,12 +4,13 @@ import { Statistics } from './Statistics/Statistics';
 import { Notification } from './Notification/Notification';
 import { Section } from './Section/Section';
 import { FeedbackContext } from 'context/FeedbackContext';
+import { styled } from 'styled-components';
 
 export const App = () => {
   const { countTotalFeedback } = useContext(FeedbackContext);
 
   return (
-    <>
+    <Container>
       <Section title="Please leave a feedback">
         <FeedbackOptions />
       </Section>
@@ -21,6 +22,14 @@ export const App = () => {
       ) : (
         <Notification message="There is no feedback yet 😢"></Notification>
       )}
-    </>
+    </Container>
   );
 };
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #8295b8;
+  height: 100vh;
+`;
