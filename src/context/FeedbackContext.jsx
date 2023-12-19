@@ -11,13 +11,13 @@ export const ContextProvider = ({ children }) => {
 
   const handleBtnClick = e => {
     if (e.target.name === 'good') {
-      setGood(good + 1);
+      setGood(prev=> prev + 1);
     }
     if (e.target.name === 'neutral') {
-      setNeutral(neutral + 1);
+      setNeutral(prev=> prev + 1);
     }
     if (e.target.name === 'bad') {
-      setBad(bad + 1);
+      setBad(prev=> prev + 1);
     }
   };
   const countTotalFeedback = () => {
